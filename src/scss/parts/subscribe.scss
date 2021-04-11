@@ -1,0 +1,49 @@
+.subscribe{
+    &__body{
+        max-width: 534px;
+        margin: 0px auto;
+        text-align: center;
+        padding: 110px 0;
+    }
+    &__logo{
+        margin: 0px 0px 39px 0px;
+    }
+    &__label{
+        color: #848789;
+        font-size: 24px;
+        font-style: italic;
+        margin-bottom: 35px;
+    }
+    &__form{
+        display: flex;
+    }
+    &__input{
+        flex: 1 1 auto;
+        padding-right: 8px;
+        .input{
+            width: 100%;
+            height: 69px;
+            border: 1px solid #d3d7d9;
+            background-color: #fff;
+            color: #929292;
+            line-height: 24px;
+            font-style: italic;
+            padding: 0px 28px;
+        }
+    }
+    &__button{
+        flex: 0 0 126px;
+        // margin-left: 8px;
+    }
+    &__btn{
+        width: 126px;
+        height: 69px;
+        background-color: #64c69e;
+        line-height: 69px;
+        color: #fff;
+        transition: background-color .3s;
+        &:hover{
+            background-color: #4c9376;
+        }
+    }
+}

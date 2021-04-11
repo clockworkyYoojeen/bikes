@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+		rel="stylesheet">
 	<!-- <link rel="stylesheet" href="libs/animate/animate.min.css"> -->
 	<!-- <link rel="stylesheet" href="libs/micromodal/micromodal.css"> -->
 	<link rel="stylesheet" href="css/main.css">
@@ -13,20 +18,381 @@
 
 	<title>New Project</title>
 </head>
+
 <body>
 	<div class="wrapper">
-		<div>
-    <h1>This a Header</h1>
-</div>
 		<main class="page">
+			<header class="header">
+    <div class="header__row">
+        <nav class="header__menu menu">
+            <div class="menu__icon icon_menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu__body">
+                <ul class="menu__list">
+                    <li><a href="" class="menu__link">about us</a></li>
+                    <li><a href="" class="menu__link">work</a></li>
+                    <li><a href="" class="menu__link">shop</a></li>
+                    <li><a href="" class="menu__link">contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="header__logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+    </div>
+</header>
+			<div class="mainscreen">
+    <div class="mainscreen__bg ibg" data-index="0">
+        <!-- эта картинка станет фоном (через js скрипт) -->
+        <img src="img/main-bg2.jpg" alt="mainscreen">
+    </div>
+    <div class="mainscreen__bg ibg" data-index="1">
+        <!-- эта картинка станет фоном (через js скрипт) -->
+        <img src="img/main-bg.jpg" alt="mainscreen">
+    </div>
+    <div class="mainscreen__bg ibg active" data-index="2">
+        <!-- эта картинка станет фоном (через js скрипт) -->
+        <img src="img/main-bg3.jpg" alt="mainscreen">
+    </div>
+</div>
+			<section class="newgeneration">
+    <div class="container">
+        <div class="newgeneration__block block">
+            <div class="block__icon">
+                <img src="img/icons/about-icon.png" alt="new generation">
+            </div>
+            <h1 class="block__title">a newgeneration of vintage bike</h1>
+            <div class="block__text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptate optio, eum quaerat exercitationem
+                rerum aperiam harum, illum quis, nostrum nesciunt
+                officia reiciendis nisi dolorum obcaecati omnis hic.
+                Dicta in id asperiores velit. Corrupti?
+            </div>
+        </div>
+    </div>
+</section>
+			<section class="brands">
+    <div class="brands__row">
+        <div class="brands__column brands__column--big">
+            <a href="" class="brands__item item">
+                <span class="item__logo">
+                    <img src="img/logos/logo1.png" alt="logo">
+                </span>
+                <span class="item__image ibg">
+                    <img src="img/shop/bike1.jpg" alt="bike">
+                </span>
+            </a>
+        </div>
+        <div class="brands__column brands__column--small">
+            <div class="brands__content">
+                <div class="block brands__block">
+                    <div class="block__icon">
+                        <img src="img/icons/bike1.png" alt="new generation">
+                    </div>
+                    <h2 class="block__title">vintage oliva</h2>
+                    <div class="block__text block__text--j">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptate optio, eum quaerat exercitationem
+                        rerum aperiam harum, illum quis, nostrum nesciunt
+                        officia reiciendis nisi dolorum obcaecati omnis hic.
+                        Dicta in id asperiores velit. Corrupti?
+                    </div>
+                </div>
+            </div>
+            <div class="brands__image ibg">
+                <img src="img/shop/bike2.jpg" alt="bike">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="brands brands--rev">
+    <div class="brands__row">
+        <div class="brands__column brands__column--big">
+            <a href="" class="brands__item item">
+                <span class="item__logo">
+                    <img src="img/logos/logo2.png" alt="logo">
+                </span>
+                <span class="item__image ibg">
+                    <img src="img/shop/bike3.jpg" alt="bike">
+                </span>
+            </a>
+        </div>
+        <div class="brands__column brands__column--small">
+            <div class="brands__content">
+                <div class="block brands__block">
+                    <div class="block__icon">
+                        <img src="img/icons/bike2.png" alt="new generation">
+                    </div>
+                    <h2 class="block__title">la boriosa</h2>
+                    <div class="block__text block__text--j">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptate optio, eum quaerat exercitationem
+                        rerum aperiam harum, illum quis, nostrum nesciunt
+                        officia reiciendis nisi dolorum obcaecati omnis hic.
+                        Dicta in id asperiores velit. Corrupti?
+                    </div>
+                </div>
+            </div>
+            <div class="brands__image ibg">
+                <img src="img/shop/bike4.jpg" alt="bike">
+            </div>
+        </div>
+    </div>
+</section>
 
+<section class="brands brands--last">
+    <div class="brands__row">
+        <div class="brands__column">
+            <a href="" class="brands__item item">
+                <span class="item__logo">
+                    <img src="img/logos/logo3.png" alt="logo">
+                </span>
+                <span class="item__image ibg">
+                    <img src="img/shop/bike5.jpg" alt="bike">
+                </span>
+            </a>
+        </div>
+        <div class="brands__column brands__column--small">
+            <div class="brands__content">
+                <div class="block brands__block">
+                    <div class="block__icon">
+                        <img src="img/icons/bike3.png" alt="new generation">
+                    </div>
+                    <h2 class="block__title">retro bike - m.hulot</h2>
+                    <div class="block__text block__text--j">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptate optio, eum quaerat exercitationem
+                        rerum aperiam harum, illum quis, nostrum nesciunt
+                        officia reiciendis nisi dolorum obcaecati omnis hic.
+                        Dicta in id asperiores velit. Corrupti?
+                    </div>
+                </div>
+            </div>
+            <div class="brands__image ibg">
+                <img src="img/shop/bike7.jpg" alt="bike">
+            </div>
+        </div>
+        <div class="brands__column">
+            <a href="" class="brands__item item">
+                <span class="item__logo">
+                    <img src="img/logos/logo3.png" alt="logo">
+                </span>
+                <span class="item__image ibg">
+                    <img src="img/shop/bike6.jpg" alt="bike">
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+			<section class="slider">
+    <div class="container">
+        <div class="slider__body">
+            <div class="slider__item">
+                <div class="slider__icon">
+                    <img src="img/icons/twitter.png" alt="twitter">
+                </div>
+                <h3 class="slider__title">AOD New York @aod <span>/ 35 min.</span></h3>
+                <div class="slider__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quod omnis deleniti excepturi ullam aliquid eligendi ipsum
+                    nulla quae illum, iusto in nihil.
+                </div>
+            </div>
+            <div class="slider__item">
+                <div class="slider__icon">
+                    <img src="img/icons/twitter.png" alt="twitter">
+                </div>
+                <h3 class="slider__title">AOD New York @aod <span>/ 35 min.</span></h3>
+                <div class="slider__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quod omnis deleniti excepturi ullam aliquid eligendi ipsum
+                    nulla quae illum, iusto in nihil. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Ipsam blanditiis sunt est labore nisi?
+                </div>
+            </div>
+            <div class="slider__item">
+                <div class="slider__icon">
+                    <img src="img/icons/twitter.png" alt="twitter">
+                </div>
+                <h3 class="slider__title">AOD New York @aod <span>/ 35 min.</span></h3>
+                <div class="slider__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quod omnis deleniti excepturi ullam aliquid eligendi ipsum
+                    nulla quae illum, iusto in nihil.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+			<section class="shop">
+    <div class="shop__body">
+        <div class="shop__column shop__column--big">
+            <div class="shop__block block-shop">
+                <div class="block-shop__row">
+                    <div class="block-shop__column">
+                        <a href="" class="block-shop__item block-shop__item--little item">
+                            <span class="item__logo">
+                                <img src="img/icons/bike.png" alt="logo">
+                                <span>Shop Now</span>
+                            </span>
+                            <span class="item__image ibg">
+                                <img src="img/shop/shop-item1.jpg" alt="bike">
+                            </span>
+                        </a>
+                    </div>
+                    <div class="block-shop__column">
+                        <a href="" class="block-shop__item block-shop__item--little item">
+                            <span class="item__logo">
+                                <img src="img/icons/bike.png" alt="logo">
+                                <span>Shop Now</span>
+                            </span>
+                            <span class="item__image ibg">
+                                <img src="img/shop/shop-item2.jpg" alt="bike">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <a href="" class="block-shop__item item">
+                    <span class="item__logo">
+                        <img src="img/icons/bike.png" alt="logo">
+                        <span>Shop Now</span>
+                    </span>
+                    <span class="item__image ibg">
+                        <img src="img/shop/shop-item3.jpg" alt="bike">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="shop__column">
+            <a href="" class="block-shop__item block-shop__item--big item">
+                <span class="item__logo">
+                    <img src="img/icons/bike.png" alt="logo">
+                    <span>Shop Now</span>
+                </span>
+                <span class="item__image ibg">
+                    <img src="img/shop/shop-item4.jpg" alt="bike">
+                </span>
+            </a>
+        </div>
+        <div class="shop__column">
+            <a href="" class="block-shop__item block-shop__item--big item">
+                <span class="item__logo">
+                    <img src="img/icons/bike.png" alt="logo">
+                    <span>Shop Now</span>
+                </span>
+                <span class="item__image ibg">
+                    <img src="img/shop/shop-item5.jpg" alt="bike">
+                </span>
+            </a>
+        </div>
+        <div class="shop__column shop__column--big">
+            <div class="shop__block block-shop">
+                <a href="" class="block-shop__item item">
+                    <span class="item__logo">
+                        <img src="img/icons/bike.png" alt="logo">
+                        <span>Shop Now</span>
+                    </span>
+                    <span class="item__image ibg">
+                        <img src="img/shop/shop-item6.jpg" alt="bike">
+                    </span>
+                </a>
+                <div class="block-shop__row">
+                    <div class="block-shop__column">
+                        <a href="" class="block-shop__item block-shop__item--little item">
+                            <span class="item__logo">
+                                <img src="img/icons/bike.png" alt="logo">
+                                <span>Shop Now</span>
+                            </span>
+                            <span class="item__image ibg">
+                                <img src="img/shop/shop-item7.jpg" alt="bike">
+                            </span>
+                        </a>
+                    </div>
+                    <div class="block-shop__column">
+                        <a href="" class="block-shop__item block-shop__item--little item">
+                            <span class="item__logo">
+                                <img src="img/icons/bike.png" alt="logo">
+                                <span>Shop Now</span>
+                            </span>
+                            <span class="item__image ibg">
+                                <img src="img/shop/shop-item2.jpg" alt="bike">
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shop__footer">
+        <div class="container">
+            <a href="" class="shop__btn">discover more</a>
+        </div>
+    </div>
+</section>
+			<div class="subscribe">
+    <div class="container">
+        <div class="subscribe__body">
+            <div class="subscribe__logo">
+                <img src="img/logo.png" alt="logo">
+            </div>
+            <div class="subscribe__label">stay on the saddle!</div>
+            <form action="handler.php" class="subscribe__form">
+                <div class="subscribe__input">
+                    <input type="text" class="input">
+                </div>
+                <div class="subscribe__button">
+                    <button class="subscribe__btn">GO</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+			<footer class="footer">
+    <div class="container">
+        <div class="footer__row">
+            <div class="footer__column">
+                <div class="footer__address">
+                    <p>AOD New York</p>
+                    <p>2250 Lexington Avenue</p>
+                    <p>New York, NY 10035 info@domain.com</p>
+                </div>
+            </div>
+            <div class="footer__column">
+                <div class="footer__social social">
+                    <a href="" class="social__link">
+                        <img src="img/icons/social-fb.png" alt="facebook">
+                    </a>
+                    <a href="" class="social__link">
+                        <img src="img/icons/social-tw.png" alt="facebook">
+                    </a>
+                    <a href="" class="social__link">
+                        <img src="img/icons/social-inst.png" alt="facebook">
+                    </a>
+                </div>
+            </div>
+            <div class="footer__column">
+                <a class="footer__dev dev">
+                    <span class="dev__text">Handcrafted by</span>
+                    <span class="dev__icon">
+                        <img src="img/icons/dev.png" alt="developer logo">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
 		</main>
-		<p>Footer</p>
 	</div>
-	<!-- <script src="js/jquery-1.11.2.min.js"></script> -->
-	<!-- <script src="libs/animate/animate-css.js"></script> -->
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/slick.min.js"></script>
 	<!-- <script src="js/waypoints.min.js"></script> -->
 	<!-- <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script> -->
 	<script src="js/common.js"></script>
 </body>
+
 </html>

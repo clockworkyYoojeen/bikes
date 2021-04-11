@@ -1,0 +1,57 @@
+.shop{
+    &__body{
+        display: flex;
+        align-items: stretch;
+    }
+    &__column{
+        flex: 0 1 16.666%;
+        &--big{
+            flex: 0 1 33.333%;
+        }
+    }
+    &__block{
+
+    }
+    &__footer{
+        background-color: #282f35;
+        padding: 75px 0;
+        text-align: center;
+    }
+    &__btn{
+        border: 1px solid #fff;
+        display: inline-block;
+        height: 50px;
+        line-height: 48px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        padding-left: 60px;
+        padding-right: 60px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: background-color ease-in .5s, color ease-out .4s;
+        &:hover{
+            background-color: #fff;
+            color: #282f35;
+        }
+    }
+}
+.block-shop{
+    height: 100%;
+    &__row{
+        display: flex;
+    }
+    &__column{
+        flex: 0 1 50%;
+    }
+    &__item{
+        padding-bottom: 50%;
+        height: auto;
+        &--big{
+            padding: 0px 0px 200% 0px;
+        }
+        &--little{
+            padding-bottom: 100%;
+        }
+    }
+}

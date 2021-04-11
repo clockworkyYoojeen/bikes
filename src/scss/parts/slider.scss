@@ -1,0 +1,30 @@
+.slider{
+    background-color: #f7f7f7;
+    padding: 120px 0 60px 0;
+    &__body{
+
+    }
+    &__item{
+        text-align: center;
+    }
+    &__icon{
+        margin-bottom: 20px;
+    }
+    &__title{
+        margin-bottom: 20px;
+        color: #353738;
+        font-size: 16px;
+        font-weight: 700;
+        span{
+            color: #848789;
+            font-weight: 300;
+        }
+    }
+    &__text{
+        text-align: center;
+        font-size: 24px;
+        font-style: italic;
+        line-height: 34px;
+        color: #848789;
+    }
+}

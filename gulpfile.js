@@ -13,15 +13,17 @@ let path = {
     },
     src: { // пути для исходных файлов 
         // не включать в сборку html файлы, начинающиеся с символа подчёркивания (_header.html и т.п)
-        html: [source_folder + "/*.html", "!"+source_folder + "/_*.html"],
-        css: [source_folder + "/scss/reset.css",source_folder + "/scss/main.scss",source_folder + "/scss/media.scss", source_folder + "/scss/fonts.css"], // можно писать пути к нескольким файлам (в массиве)
+        html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
+        css: [source_folder + "/scss/reset.css", source_folder + "/scss/main.scss", source_folder + "/scss/media.scss", source_folder + "/scss/fonts.css"], // можно писать пути к нескольким файлам (в массиве)
         // css: source_folder + "/scss/*.{scss,css}",
         parts_css: source_folder + "/scss/parts/*.{scss,css}",
         js: source_folder + "/js/common.js",
-        // подключаем js библиотеки (jquery и waypoints)
-        // jslibs: [source_folder + "/libs/jquery/jquery-1.11.2.min.js", source_folder + "/libs/waypoints/waypoints.min.js"],
+        // подключаем js библиотеки (jquery и другие)
+        jslibs: [source_folder + "/libs/jquery/jquery-1.11.2.min.js",
+        source_folder + "/libs/slick/slick.min.js"
+        ],
         img: source_folder + "/img/**/*.{png,jpg,jpeg,ico,gif,webp}",
-        fonts: source_folder + "/fonts/**/*.ttf"
+        fonts: source_folder + "/fonts/**"
     },
     watch: { // пути для наблюдения
         html: source_folder + "/**/*.html",
@@ -33,7 +35,7 @@ let path = {
     clean: "./" + project_folder + "/"
 }
 // переменные из установленных пакетов
-let {src, dest} = require('gulp')
+let { src, dest } = require('gulp')
 let gulp = require('gulp')
 browsersync = require('browser-sync').create() // автообновление браузера
 let fileinclude = require('gulp-file-include') // подключаемые файлы (например _header.html)
@@ -47,12 +49,13 @@ let uglify_es = require('gulp-uglify-es').default // минификация js �
 let imagemin = require('gulp-imagemin') // минификация изображений
 let ttf2woff = require('gulp-ttf2woff') // работа со шрифтами
 let ttf2woff2 = require('gulp-ttf2woff2') // работа со шрифтами
+let modifyCssUrls = require('gulp-modify-css-urls') // пути к фоновым изображениям в css
 
 // автообновление браузера
-function browserSync(){
+function browserSync() {
     browsersync.init({
         server: {
-            baseDir: "./" + project_folder + "/" 
+            baseDir: "./" + project_folder + "/"
         },
         port: 3000,
         notify: false
@@ -60,94 +63,108 @@ function browserSync(){
 }
 
 // обработка html
-function html(){
+function html() {
     return src(path.src.html)
-    .pipe(fileinclude())
-    .pipe(dest(path.build.html))
-    .pipe(browsersync.stream())
+        .pipe(fileinclude())
+        .pipe(dest(path.build.html))
+        .pipe(browsersync.stream())
 }
 // css
-function css(){
+function css() {
     return src(path.src.css)
-    .pipe(
-        scss({
-            outputStyle: 'expanded'
-        })
-    )
-    .pipe(autoprefixer({
-        overrideBrowserslist: ["last 5 versions"],
-        cascade: true
-    }))
-    .pipe(dest(path.build.css))
-    .pipe(clean_css())
-    .pipe(gulp_rename({
-        extname: ".min.css"
-    }))
-    .pipe(dest(path.build.css))
-    .pipe(browsersync.stream())  
+        .pipe(
+            scss({
+                outputStyle: 'expanded'
+            })
+        )
+        .pipe(autoprefixer({
+            overrideBrowserslist: ["last 5 versions"],
+            cascade: true
+        }))
+        .pipe(modifyCssUrls({
+            modify: function (url, filePath) {
+                return '' + url; // url - например img/header_bg.jpg, то что в пути в css файле
+            },
+            prepend: 'http://localhost:3000/',//'https://fancycdn.com/',
+            append: ''//'?cache-buster'        
+        }))
+        .pipe(dest(path.build.css))
+        .pipe(clean_css())
+        .pipe(gulp_rename({
+            extname: ".min.css"
+        }))
+        .pipe(dest(path.build.css))
+        .pipe(browsersync.stream())
 }
 // css для отдельных частей шаблона
-function partsCss(){
+function partsCss() {
     return src(path.src.parts_css)
-    .pipe(
-        scss({
-            outputStyle: 'expanded'
-        })
-    )
-    .pipe(autoprefixer({
-        overrideBrowserslist: ["last 5 versions"],
-        cascade: true       
-    }))
-    .pipe(concat_css("/bundle.css")) // путь относительно той папки, куда будут сливаться файлы (css/parts/) 
-    .pipe(dest(path.build.parts_css))
-    .pipe(browsersync.stream())
+        .pipe(
+            scss({
+                outputStyle: 'expanded'
+            })
+        )
+        .pipe(autoprefixer({
+            overrideBrowserslist: ["last 5 versions"],
+            cascade: true
+        }))
+        .pipe(modifyCssUrls({
+            modify: function (url, filePath) {
+                return '' + url; // url - например img/header_bg.jpg, то что в пути в css файле
+            },
+            prepend: 'http://localhost:3000/',//'https://fancycdn.com/',
+            append: ''//'?cache-buster'        
+        }))
+        .pipe(concat_css("/bundle.css")) // путь относительно той папки, куда будут сливаться файлы (css/parts/) 
+        .pipe(dest(path.build.parts_css))
+        .pipe(browsersync.stream())
 }
 // js
-function js(){
+function js() {
     return src(path.src.js)
-    .pipe(fileinclude())
-    .pipe(dest(path.build.js))
-    .pipe(
-        uglify_es()
-    )
-    .pipe(
-        gulp_rename({
-            extname: ".min.js"
-        })
-    )
-    .pipe(dest(path.build.js))
-    .pipe(browsersync.stream())
+        .pipe(fileinclude())
+        .pipe(dest(path.build.js))
+        .pipe(
+            uglify_es()
+        )
+        .pipe(
+            gulp_rename({
+                extname: ".min.js"
+            })
+        )
+        .pipe(dest(path.build.js))
+        .pipe(browsersync.stream())
 }
-// подключаем js библиотеки
-// function jslibs(){
-//     return src(path.src.jslibs)
-//     .pipe(dest(path.build.js))
-//     .pipe(browsersync.stream())
-// }
+//подключаем js библиотеки
+function jslibs() {
+    return src(path.src.jslibs)
+        .pipe(dest(path.build.js))
+        .pipe(browsersync.stream())
+}
 
-function fonts(){
+function fonts() {
     src(path.src.fonts)
-    .pipe(ttf2woff())
-    .pipe(dest(path.build.fonts));
+        .pipe(ttf2woff())
+        .pipe(dest(path.build.fonts));
 
     return src(path.src.fonts)
-    .pipe(ttf2woff2())
-    .pipe(dest(path.build.fonts))
+        .pipe(ttf2woff2())
+        .pipe(dest(path.build.fonts))
 }
-function images(){
+function images() {
     return src(path.src.img)
-    .pipe(
-        imagemin({
-            progressive: true,
-            interlaced: true,
-            optimizationLevel: 3
-        })
-    )
-    .pipe(dest(path.build.img))
-    .pipe(browsersync.stream())
+        .pipe(
+            imagemin({
+                progressive: true,
+                interlaced: true,
+                optimizationLevel: 3
+            })
+        )
+        .pipe(dest(path.build.img))
+        .pipe(browsersync.stream())
 }
 // следим за файлами
-function watchFiles(){
+function watchFiles() {
     gulp.watch([path.watch.html], html)
     gulp.watch([path.watch.css], css)
     gulp.watch([path.watch.partsCss], partsCss)
@@ -155,11 +172,11 @@ function watchFiles(){
     gulp.watch([path.watch.img], images)
 }
 
-function clean(){
+function clean() {
     return del(path.clean)
 }
 // конечная сборка
-let build = gulp.series(clean, gulp.parallel(js, /*jslibs, */ partsCss, css, html, fonts, images))
+let build = gulp.series(clean, gulp.parallel(js, jslibs, partsCss, css, html, fonts, images))
 let watch = gulp.parallel(build, watchFiles, browserSync)
 
 exports.images = images
@@ -169,6 +186,6 @@ exports.partsCss = partsCss
 exports.build = build
 exports.html = html
 exports.fonts = fonts
-// exports.jslibs = jslibs
+exports.jslibs = jslibs
 exports.watch = watch
 exports.default = watch

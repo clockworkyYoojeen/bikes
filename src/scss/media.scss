@@ -1,11 +1,57 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
+@media only screen and (max-width : 1400px) {
+    .brands__content{
+        padding: 55px 35px 55px 35px; 
+    }
+}
 @media only screen and (max-width : 1200px) {
-
+    .shop__body{
+        flex-wrap: wrap;
+    }
+    .shop__column{
+        flex: 0 1 50%;
+        &:first-child{
+            flex: 1 1 100%;
+        }
+        &:last-child{
+            flex: 1 1 100%;
+        }
+    }
+    .shop__btn{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .shop__footer{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
 }
 @media only screen and (max-width : 1092px) {
-
+    .brands__row{
+        flex-direction: column;
+    }
+    .brands__item{
+        height: auto;
+        padding-bottom: 50%;
+    }
+    .brands--last{
+        .brands__column{
+            &:nth-child(1){
+                order: 2;
+            }
+            &:nth-child(2){
+                order: 1;
+            }
+            &:nth-child(3){
+                order: 3;
+            }
+        }
+    }
+    .footer__row{
+        padding: 50px 0;
+    }
 }
 
 /* Medium Devices, Desktops */
@@ -13,16 +59,84 @@
 
 }
 @media only screen and (max-width : 960px) {
-
+    .newgeneration{
+        padding: 80px 0px;
+    }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
+    .menu__body{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: -200%;
+        left: 0;
+        background-color: #4d4959;
+        padding-top: 150px;
+        transition: all .4s;
+        overflow: auto;
+    }
+    .menu__list{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        li{
+            padding: 0px 0px 35px 0px;
+            &:nth-child(2){
+            padding: 0px 0px 35px 0px;
+        }
+        &:nth-child(3){
+                padding: 0px 0px 35px 0px;
+            }
+        }
+    }
+    .menu__link{
+        color:#fff;
+        font-size: 20px;
+    }
+    .header__logo{
+        top: 15px;
+    }
+    .icon_menu{
+        display: block;
+    }
+    .subscribe__body{
+        padding: 50px 0px;
+    }
 }
 
+@media only screen and (max-width : 600px){
+    .footer__row{
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer__address{
+        padding: 0;
+    }
+    .footer__social{
+        margin: 15px 0;
+}
+}
 @media only screen and (max-width : 550px){ 
-
+    .newgeneration{
+        padding: 30px 0px;
+    }
+    .subscribe__form{
+        flex-direction: column;
+    }
+    .subscribe__input{
+        width: 100%;
+        padding: 0;
+        .input{
+            width: 100%;
+            // padding: 0 0 0 18px;
+        }
+    }
+    .subscribe__btn{
+        width: 100%;
+        margin-top: 22px;
+    }
 }
 
 
