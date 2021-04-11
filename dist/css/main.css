@@ -2,6 +2,11 @@ body {
   font-family: "Lato";
 }
 
+body,
+html {
+  scroll-behavior: smooth;
+}
+
 div,
 input {
   -webkit-box-sizing: border-box;

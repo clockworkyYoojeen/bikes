@@ -26,7 +26,7 @@ $(document).ready(function () {
     setInterval(customSlider2, 3500)
 
     // меню бургер
-    $('.icon_menu').click(function () {
+    $('.icon_menu, .menu__link').click(function () {
         $('.icon_menu, .header__menu').toggleClass('active')
     })
     // slick slider 2

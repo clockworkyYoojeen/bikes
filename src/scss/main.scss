@@ -3,6 +3,9 @@ $fcolor: #4d4959;
 body{
     font-family: $ff;
 }
+body, html{
+    scroll-behavior: smooth;
+}
 div, input{
     box-sizing: border-box;
 }
