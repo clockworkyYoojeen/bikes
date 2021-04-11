@@ -4,7 +4,7 @@ $(document).ready(function () {
     for (let i = 0; i < ibgImages.length; i++) {
         if (ibgImages[i].querySelector('img')) {
             let src = ibgImages[i].querySelector('img').getAttribute('src')
-            ibgImages[i].style.backgroundImage = `url("http://localhost:3000/${src}")`
+            ibgImages[i].style.backgroundImage = `url("https://amazingbikes.netlify.app/${src}")`
         }
     }
     // top slider
