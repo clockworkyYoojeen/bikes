@@ -290,6 +290,32 @@
   transform: rotate(-45deg);
   bottom: 8px;
 }
+
+@media only screen and (min-width: 768px) {
+  .header.scrolled {
+    -webkit-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+    position: fixed;
+    top: 0px;
+    background-color: rgba(100, 194, 158, 0.5);
+    border-bottom: 2px solid #fff;
+  }
+
+  .header.scrolled .header__row {
+    height: 63px;
+  }
+
+  .header.scrolled .menu__link {
+    color: #fff;
+    font-size: 15px;
+  }
+
+  .header.scrolled .header__logo img {
+    width: 52px;
+    height: 52px;
+  }
+}
 .mainscreen {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 100%;

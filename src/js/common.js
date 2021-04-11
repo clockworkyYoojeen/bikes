@@ -36,5 +36,12 @@ $(document).ready(function () {
         dots: true,
         adaptiveHeight: true,
     })
-
+    // фиксированное меню при скролле
+    $(window).scroll(function () {
+        if (window.scrollY > 600) {
+            $('.header').addClass('scrolled')
+        } else {
+            $('.header').removeClass('scrolled')
+        }
+    })
 })

@@ -97,3 +97,24 @@
         bottom: 8px;
     }
 }
+
+@media only screen and (min-width: 768px){
+    .header.scrolled{
+        transition: all ease .3s;
+        .header__row{
+            height: 63px;
+        }
+        position: fixed;
+        top: 0px;
+        background-color: rgba(100, 194, 158, .5);
+        border-bottom: 2px solid #fff;
+        .menu__link{
+            color: #fff;
+            font-size: 15px;
+        }
+        .header__logo img{
+            width: 52px;
+            height: 52px;
+        }
+    }
+}
