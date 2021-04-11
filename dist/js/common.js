@@ -11,10 +11,10 @@ $(document).ready(function () {
     const slides = document.querySelectorAll('.mainscreen__bg')
     let current = slides.length - 1
     function customSlider2() {
-        let previous = document.querySelector('.active')
-        previous.classList.remove('active')
+        let previous = document.querySelector('.active-slide')
+        previous.classList.remove('active-slide')
         current === 0 ? current = slides.length - 1 : current--
-        slides[current].classList.add('active')
+        slides[current].classList.add('active-slide')
     }
     // function customSlider() {
     //     for (let i = 0; i < slides.length; i++) {

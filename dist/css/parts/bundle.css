@@ -309,7 +309,7 @@
   transition: opacity .5s ease-in;
 }
 
-.mainscreen__bg.active {
+.mainscreen__bg.active-slide {
   opacity: 1;
 }
 .newgeneration {

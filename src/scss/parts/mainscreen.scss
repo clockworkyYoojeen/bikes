@@ -9,11 +9,8 @@
         left: 0;
         opacity: 0;
         transition: opacity .5s ease-in;
-        &.active{
+        &.active-slide{
             opacity: 1;
         }
     }
-}
-.active{
-    
 }
